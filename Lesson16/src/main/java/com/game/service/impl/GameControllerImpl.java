@@ -4,20 +4,15 @@ import com.game.dto.Computer;
 import com.game.dto.GameItem;
 import com.game.dto.GameResult;
 import com.game.dto.Player;
-import com.game.service.GameController;
+import com.game.service.Saved;
 import lombok.Data;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 @Data
-public class GameControllerImpl implements GameController {
+public class GameControllerImpl implements Saved {
 
     private static final Scanner sc = new Scanner(System.in);
     private Player player;
@@ -66,7 +61,7 @@ public class GameControllerImpl implements GameController {
         String choice = sc.nextLine();
         try {
             if (choice.equalsIgnoreCase("Y")) {
-                saved(result);
+                Saved.saved(result);
                 System.out.println("Results saved successfully !!!");
             } else {
                 System.out.println("Good luck !!!");
@@ -87,20 +82,6 @@ public class GameControllerImpl implements GameController {
         } else if (winner == GameResult.COMPUTER) {
             player.setCountLoseGame(player.getCountLoseGame() + 1);
         }
-        System.out.println("Win in " + player.getCountGame() + " round is: " + winner.toString());
-    }
-
-    public void saved(String results) {
-
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-
-        String path = Paths.get("").toAbsolutePath().toString();
-
-        try (FileWriter saver = new FileWriter(path + "\\results.txt", true)) {
-            saver.write(dtf.format(now) + " -> " + results + "\n");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        System.err.println("Win in " + player.getCountGame() + " round is: " + winner.toString());
     }
 }

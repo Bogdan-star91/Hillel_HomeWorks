@@ -13,8 +13,6 @@ public interface GameController {
 
     void endRound();
 
-    void saved(String results);
-
     final class FakeController implements GameController {
 
         private Player pFake;
@@ -54,11 +52,5 @@ public interface GameController {
         public void endRound() {
 
         }
-
-        @Override
-        public void saved(String results) {
-
-        }
-
     }
 }
