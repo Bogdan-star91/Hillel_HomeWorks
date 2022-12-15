@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        File startPath = new File("D:\\Hillel\\Projects\\GitHub-Java Pro\\Hillel_HomeWorksB15\\Lesoon15\\src");
+        File startPath = new File("D:\\Hillel\\Projects\\GitHub-Java Pro\\Hillel_HomeWorksB15\\Lesson15\\src");
 
         viewContents(startPath);
 
