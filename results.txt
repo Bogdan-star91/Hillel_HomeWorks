@@ -1,0 +1,6 @@
+15/12/2022 15:02:31 -> Player Bohdan won 0 games, lose 2 games. Total games played: 2.
+15/12/2022 15:06:41 -> Player ALEX won 0 games, lose 2 games. Total games played: 2.
+15/12/2022 15:07:42 -> Player Bohdan won 1 games, lose 1 games. Total games played: 2.
+15/12/2022 15:39:58 -> Player Tom won 1 games, lose 1 games. Total games played: 2.
+22/12/2022 00:50:24 -> Player Bohdan won 0 games, lose 1 games. Total games played: 2.
+22/12/2022 00:50:40 -> Player Bohdan won 2 games, lose 1 games. Total games played: 3.
