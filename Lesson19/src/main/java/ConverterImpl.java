@@ -39,7 +39,7 @@ public class ConverterImpl implements Converter {
     }
 
     @Override
-    public String checkFormat(String filePath) throws IOException {
+    public String checkFormat(String filePath) {
 
         String testStr = readToString(filePath);
 
@@ -50,9 +50,6 @@ public class ConverterImpl implements Converter {
             System.out.println("YAML discovered");
             return "YAML";
         } else {
-            System.out.println("No files to convert!");
-            write(Paths.get("").toAbsolutePath(), null);
-            System.exit(0);
             return null;
         }
 
@@ -128,7 +125,7 @@ public class ConverterImpl implements Converter {
             newFileSize = Files.size(Paths.get(destinationFile.getAbsolutePath()));
         }
 
-        try (FileWriter saver = new FileWriter(path + "\\log.txt", true)) {
+        try (FileWriter saver = new FileWriter(path + "\\result.log", true)) {
             System.out.println("Saving results to : " + path);
             if (isOperationSuccessful) {
                 saver.write(dtf.format(now) + " -> " + "Converted " + oldFileName + " " + oldFileSize + " bytes to "

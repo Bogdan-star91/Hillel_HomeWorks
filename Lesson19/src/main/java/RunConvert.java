@@ -1,7 +1,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.*;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class RunConvert {
 
@@ -30,7 +31,14 @@ public class RunConvert {
             }
         }
 
+        if(filesToConvert.size() == 0) {
+            System.out.println("No files to convert!");
+            service.write(Paths.get("").toAbsolutePath(), null);
+            System.exit(0);
+        }
+        
         for (File file : filesToConvert) {
+
             switch (service.checkFormat(file.getPath())) {
                 case "JSON" -> {
                     service.convertToYaml(file);
@@ -43,6 +51,7 @@ public class RunConvert {
                 }
             }
         }
+
 
     }
 }
