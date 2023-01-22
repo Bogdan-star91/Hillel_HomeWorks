@@ -1,0 +1,49 @@
+CREATE TABLE class (
+  ID_class int NOT NULL AUTO_INCREMENT,
+  Name_class varchar(255) NOT NULL,
+  PRIMARY KEY (ID_class)
+);
+CREATE TABLE students (
+  ID_student int NOT NULL AUTO_INCREMENT,
+  Full_name varchar(255) NOT NULL,
+  Class int NOT NULL,
+  Year_admission int NOT NULL,
+  PRIMARY KEY (ID_student),
+  FOREIGN KEY (Class) REFERENCES class(ID_class)
+);
+ALTER TABLE students AUTO_INCREMENT=1000;
+CREATE TABLE departments(
+  ID_department int NOT NULL AUTO_INCREMENT,
+  Name_department varchar(255) NOT NULL,
+  Name_head varchar(255) NOT NULL,
+  PRIMARY KEY (ID_department)
+);
+ALTER TABLE departments AUTO_INCREMENT=110;
+CREATE TABLE teachers (
+  ID_teacher int NOT NULL AUTO_INCREMENT,
+  Full_name varchar(255) NOT NULL,
+  Department int NOT NULL,
+  PRIMARY KEY (ID_teacher),
+  FOREIGN KEY (Department) REFERENCES departments(ID_department)
+);
+CREATE TABLE lessons(
+  ID_lesson int NOT NULL AUTO_INCREMENT,
+  Name_lesson varchar(255) NOT NULL,
+  Teacher int NOT NULL,
+  Semester bit NOT NULL,
+  Year int NOT NULL,
+  CHECK (Semester<=4),
+  CHECK (Year>=2022),
+  PRIMARY KEY (ID_lesson),
+  FOREIGN KEY (Teacher) REFERENCES teachers(ID_teacher)
+);
+CREATE TABLE points (
+  ID_point int NOT NULL AUTO_INCREMENT,
+  Lesson int NOT NULL ,
+  Student int NOT NULL,
+  Point int NOT NULL,
+  CHECK (Point<=12),
+  PRIMARY KEY (ID_point),
+  FOREIGN KEY (Student) REFERENCES students(ID_student),
+  FOREIGN KEY (Lesson) REFERENCES lessons(ID_lesson)
+);
