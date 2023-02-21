@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 @Slf4j
-public class ControllerTest {
+public class CacheController {
 
     ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
     CacheImpl cacheImpl = context.getBean("CacheImpl", CacheImpl.class);
 
     private static final Logger informer = LoggerFactory.getLogger("informer");
 
-    @GetMapping("/put")
-    public String put(String cacheName, String key, Object o) {
-        informer.info("Running 'put(String cacheName, String key, Object o)' method");
+    @GetMapping("/post")
+    public String post(String cacheName, String key, Object o) {
+        informer.info("Running 'post(String cacheName, String key, Object o)' method");
         boolean result = cacheImpl.put(cacheName, key, o);
-        return "Put " + o.toString() + " in cache " + cacheName + "; result : " + result;
+        return "post " + o.toString() + " in cache " + cacheName + "; result : " + result;
     }
 
     @GetMapping("/get")

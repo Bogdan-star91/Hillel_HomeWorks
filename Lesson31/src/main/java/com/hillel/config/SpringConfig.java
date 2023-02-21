@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringConfig {
     @Bean(name = "CacheImpl")
-    public CacheImpl getHelloWorld() {
+    public CacheImpl getCache() {
         return new CacheImpl();
     }
 }

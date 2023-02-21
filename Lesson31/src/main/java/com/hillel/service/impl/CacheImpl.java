@@ -1,6 +1,6 @@
 package com.hillel.service.impl;
 
-import com.hillel.service.CacheService;
+import com.hillel.service.Cache;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +13,7 @@ import java.util.Map;
  * @version 1.0.1
  */
 
-public class CacheImpl implements CacheService {
+public class CacheImpl implements Cache {
 
     private static final Logger infoWriter = LoggerFactory.getLogger("infoWriter");
     private static final Logger errorWriter = LoggerFactory.getLogger("errorWriter");

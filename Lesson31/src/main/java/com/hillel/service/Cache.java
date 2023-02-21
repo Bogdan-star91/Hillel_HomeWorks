@@ -1,6 +1,6 @@
 package com.hillel.service;
 
-public interface CacheService {
+public interface Cache {
 
     void createCache ();
 
