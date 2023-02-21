@@ -4,7 +4,7 @@ public interface Cache {
 
     void createCache ();
 
-    boolean put(String cache, String key, Object o);
+    boolean post(String cache, String key, Object o);
 
     Object get (String cache, String key);
 

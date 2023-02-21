@@ -28,7 +28,7 @@ public class CacheController {
     @GetMapping("/post")
     public String post(String cacheName, String key, Object o) {
         informer.info("Running 'post(String cacheName, String key, Object o)' method");
-        boolean result = cacheImpl.put(cacheName, key, o);
+        boolean result = cacheImpl.post(cacheName, key, o);
         return "post " + o.toString() + " in cache " + cacheName + "; result : " + result;
     }
 

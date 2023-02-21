@@ -37,7 +37,7 @@ public class CacheImpl implements Cache {
      *                  Puts given object into defined cache and binds with selected key.
      */
     @Override
-    public boolean put(String cacheName, String key, Object o) {
+    public boolean post(String cacheName, String key, Object o) {
 
         try {
             if (localCache == null) {
@@ -51,7 +51,7 @@ public class CacheImpl implements Cache {
             } else {
                 localCache.get(cacheName).put(key, o);
             }
-            infoWriter.info("Put object " + o.toString() + " in cache named : " + cacheName);
+            infoWriter.info("Post object " + o.toString() + " in cache named : " + cacheName);
             return true;
         } catch (Exception e) {
             errorWriter.error("Error putting object " + o + " to cache named : " + cacheName);

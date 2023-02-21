@@ -35,17 +35,17 @@ public class CacheImplTest {
         Assertions.assertNull(cacheImpl.getLocalCache());
         cacheImpl.createCache();
         Assertions.assertNotNull(cacheImpl.getLocalCache());
-        cacheImpl.put("Test", "1", new Object());
-        cacheImpl.put("Test1", "2", new Object());
+        cacheImpl.post("Test", "1", new Object());
+        cacheImpl.post("Test1", "2", new Object());
         Assertions.assertTrue(cacheImpl.isCacheExist("Test"));
         Assertions.assertTrue(cacheImpl.isCacheExist("Test1"));
     }
 
     @Test
-    void put() {
+    void post() {
         Assertions.assertNull(cacheImpl.getLocalCache());
-        cacheImpl.put("Test", "1", new Object());
-        cacheImpl.put("Test", "2", new Object());
+        cacheImpl.post("Test", "1", new Object());
+        cacheImpl.post("Test", "2", new Object());
         Assertions.assertNotNull(cacheImpl.getLocalCache());
         Assertions.assertTrue(cacheImpl.isCacheExist("Test"));
     }
@@ -53,8 +53,8 @@ public class CacheImplTest {
     @Test
     void get() {
         Assertions.assertNull(cacheImpl.getLocalCache());
-        cacheImpl.put("Test", "1", new Object());
-        cacheImpl.put("Test", "2", new Object());
+        cacheImpl.post("Test", "1", new Object());
+        cacheImpl.post("Test", "2", new Object());
         Assertions.assertNotNull(cacheImpl.getLocalCache());
         Assertions.assertTrue(cacheImpl.isCacheExist("Test"));
         Assertions.assertNotNull(cacheImpl.get("Test", "2"));
@@ -64,8 +64,8 @@ public class CacheImplTest {
     @Test
     void clearWhole() {
         Assertions.assertNull(cacheImpl.getLocalCache());
-        cacheImpl.put("Test", "1", new Object());
-        cacheImpl.put("Test", "2", new Object());
+        cacheImpl.post("Test", "1", new Object());
+        cacheImpl.post("Test", "2", new Object());
         Assertions.assertNotNull(cacheImpl.getLocalCache());
         cacheImpl.clear();
         Assertions.assertTrue(cacheImpl.getLocalCache().isEmpty());
@@ -75,7 +75,7 @@ public class CacheImplTest {
     void clearSpecific() {
         cacheImpl.createCache();
         Assertions.assertFalse(cacheImpl.isCacheExist("Test"));
-        cacheImpl.put("Test", "1", new Object());
+        cacheImpl.post("Test", "1", new Object());
         Assertions.assertTrue(cacheImpl.isCacheExist("Test"));
         cacheImpl.clear("Test");
         Assertions.assertFalse(cacheImpl.isCacheExist("Test"));
