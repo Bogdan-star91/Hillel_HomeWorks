@@ -1,2 +1,2 @@
 # HillelHomeWorks
-Репозіторій для домашнього завдання Hillel IT School
+Репозиторій для домашнього завдання Hillel IT School
